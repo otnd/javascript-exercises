@@ -1,0 +1,21 @@
+<html>
+  <body>
+    <div id="container">
+      <button type="button" id="fetch-post">Fetch Post</button>
+      <button type="button" id="save-post">Save Post on LocalStorage</button>
+    </div>
+  </body>
+</html>
+
+<script>
+    const button = document.querySelector("#fetch-post")
+    let data = null
+    button.addEventListener("click",async () => { 
+    const inoino = await fetch("https://jsonplaceholder.typicode.com/posts/1")
+    data = await inoino.json()
+    })
+    const button2 = document.querySelector("#save-post")
+    button2.addEventListener("click", () => {
+      localStorage.setItem("data", JSON.stringify(data))
+    })
+</script>
